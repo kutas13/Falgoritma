@@ -8,6 +8,8 @@ export interface User {
   profession?: string;
   credits: number;
   onboardingCompleted: boolean;
+  isPremium?: boolean;
+  premiumExpiresAt?: string;
 }
 
 export interface AuthResponse {
@@ -64,6 +66,29 @@ export interface CreditPackage {
 
 export interface CreditBalance {
   credits: number;
+}
+
+// Subscription types
+export interface SubscriptionPlan {
+  id: string;
+  name: string;
+  planType: string;
+  price: number;
+  credits: number;
+  features: string[];
+}
+
+export interface SubscriptionStatus {
+  isPremium: boolean;
+  premiumExpiresAt?: string;
+  credits: number;
+  activeSubscription?: {
+    id: string;
+    planType: string;
+    status: string;
+    startDate: string;
+    endDate: string;
+  };
 }
 
 // Navigation types

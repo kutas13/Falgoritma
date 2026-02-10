@@ -9,6 +9,8 @@ import {
   FortuneListItem,
   CreditPackage,
   CreditBalance,
+  SubscriptionPlan,
+  SubscriptionStatus,
 } from '../types';
 
 const BASE_URL = process.env.EXPO_PUBLIC_API_URL || 'https://10e655aef2.na106.preview.abacusai.app/';
@@ -126,6 +128,27 @@ class ApiService {
 
   async simulatePurchase(packageId: string): Promise<{ credits: number; message: string }> {
     const response = await this.api.post<{ credits: number; message: string }>('/api/credits/simulate-purchase', { packageId });
+    return response?.data;
+  }
+
+  // Subscription endpoints
+  async getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
+    const response = await this.api.get<SubscriptionPlan[]>('/api/subscriptions/plans');
+    return response?.data ?? [];
+  }
+
+  async getSubscriptionStatus(): Promise<SubscriptionStatus> {
+    const response = await this.api.get<SubscriptionStatus>('/api/subscriptions/status');
+    return response?.data;
+  }
+
+  async subscribe(planType: string): Promise<{ subscription: any; message: string }> {
+    const response = await this.api.post<{ subscription: any; message: string }>('/api/subscriptions/subscribe', { planType });
+    return response?.data;
+  }
+
+  async cancelSubscription(): Promise<{ message: string }> {
+    const response = await this.api.post<{ message: string }>('/api/subscriptions/cancel');
     return response?.data;
   }
 }

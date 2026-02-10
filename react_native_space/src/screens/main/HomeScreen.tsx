@@ -303,26 +303,46 @@ export const HomeScreen: React.FC = () => {
             {Platform.OS === 'web' ? (
               <View style={styles.webDateContainer}>
                 <Text style={styles.webDateLabel}>Doğum Tarihi</Text>
-                <input
-                  type="date"
+                <TextInput
+                  mode="outlined"
+                  style={styles.input}
                   value={guestBirthDate ? guestBirthDate.toISOString().split('T')[0] : ''}
-                  onChange={(e) => {
-                    const dateValue = e.target.value;
-                    if (dateValue) {
-                      setGuestBirthDate(new Date(dateValue));
+                  onChangeText={(text) => {
+                    // Accept format: YYYY-MM-DD
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+                      setGuestBirthDate(new Date(text));
+                    } else if (text === '') {
+                      setGuestBirthDate(null);
                     }
                   }}
-                  max={new Date().toISOString().split('T')[0]}
-                  style={{
-                    width: '100%',
-                    padding: 16,
-                    fontSize: 16,
-                    backgroundColor: colors.background,
-                    color: colors.text,
-                    border: `1px solid ${colors.border}`,
-                    borderRadius: 4,
-                    marginBottom: 12,
-                  }}
+                  placeholder="YYYY-AA-GG (ör: 1990-05-15)"
+                  outlineColor={colors.border}
+                  activeOutlineColor={colors.gold}
+                  textColor={colors.text}
+                  theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
+                  render={(props) => (
+                    <input
+                      {...(props as any)}
+                      type="date"
+                      max={new Date().toISOString().split('T')[0]}
+                      style={{
+                        flex: 1,
+                        padding: 16,
+                        fontSize: 16,
+                        backgroundColor: 'transparent',
+                        color: colors.text,
+                        border: 'none',
+                        outline: 'none',
+                      }}
+                      value={guestBirthDate ? guestBirthDate.toISOString().split('T')[0] : ''}
+                      onChange={(e: any) => {
+                        const dateValue = e.target.value;
+                        if (dateValue) {
+                          setGuestBirthDate(new Date(dateValue));
+                        }
+                      }}
+                    />
+                  )}
                 />
               </View>
             ) : (

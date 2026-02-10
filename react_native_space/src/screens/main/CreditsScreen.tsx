@@ -13,25 +13,32 @@ import { useAuth } from '../../context/AuthContext';
 import { apiService } from '../../services/api';
 import { StarBackground } from '../../components/StarBackground';
 import { colors } from '../../theme';
-import { CreditPackage } from '../../types';
+import { CreditPackage, SubscriptionPlan, SubscriptionStatus } from '../../types';
 
 export const CreditsScreen: React.FC = () => {
-  const { updateUserCredits } = useAuth();
+  const { updateUserCredits, refreshUser } = useAuth();
   const [packages, setPackages] = useState<CreditPackage[]>([]);
+  const [subscriptionPlans, setSubscriptionPlans] = useState<SubscriptionPlan[]>([]);
+  const [subscriptionStatus, setSubscriptionStatus] = useState<SubscriptionStatus | null>(null);
   const [credits, setCredits] = useState(0);
   const [loading, setLoading] = useState(true);
   const [purchaseLoading, setPurchaseLoading] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'subscription' | 'credits'>('subscription');
 
   useFocusEffect(
     useCallback(() => {
       const loadData = async () => {
         try {
-          const [packagesData, balanceData] = await Promise.all([
+          const [packagesData, balanceData, plansData, statusData] = await Promise.all([
             apiService.getCreditPackages(),
             apiService.getCreditBalance(),
+            apiService.getSubscriptionPlans(),
+            apiService.getSubscriptionStatus().catch(() => null),
           ]);
           setPackages(packagesData ?? []);
           setCredits(balanceData?.credits ?? 0);
+          setSubscriptionPlans(plansData ?? []);
+          setSubscriptionStatus(statusData);
         } catch (e) {
           // ignore
         } finally {
@@ -60,6 +67,61 @@ export const CreditsScreen: React.FC = () => {
     }
   };
 
+  const handleSubscribe = async (planType: string, planName: string) => {
+    setPurchaseLoading(planType);
+    try {
+      const result = await apiService.subscribe(planType);
+      Alert.alert('Başarılı! 🎉', result?.message ?? 'Abonelik başarılı!');
+      await refreshUser();
+      const [balanceData, statusData] = await Promise.all([
+        apiService.getCreditBalance(),
+        apiService.getSubscriptionStatus().catch(() => null),
+      ]);
+      setCredits(balanceData?.credits ?? 0);
+      setSubscriptionStatus(statusData);
+    } catch (err: any) {
+      const message = err?.response?.data?.message ?? 'Abonelik başarısız. Lütfen tekrar deneyin.';
+      Alert.alert('Hata', message);
+    } finally {
+      setPurchaseLoading(null);
+    }
+  };
+
+  const handleCancelSubscription = async () => {
+    Alert.alert(
+      'Abonelik İptali',
+      'Aboneliğinizi iptal etmek istediğinize emin misiniz?',
+      [
+        { text: 'Vazgeç', style: 'cancel' },
+        {
+          text: 'İptal Et',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              await apiService.cancelSubscription();
+              Alert.alert('Başarılı', 'Aboneliğiniz iptal edildi.');
+              await refreshUser();
+              const statusData = await apiService.getSubscriptionStatus().catch(() => null);
+              setSubscriptionStatus(statusData);
+            } catch (err: any) {
+              const message = err?.response?.data?.message ?? 'İptal başarısız.';
+              Alert.alert('Hata', message);
+            }
+          },
+        },
+      ]
+    );
+  };
+
+  const getPlanIcon = (planType: string) => {
+    switch (planType) {
+      case 'weekly': return '🌟';
+      case 'monthly': return '💎';
+      case 'yearly': return '👑';
+      default: return '⭐';
+    }
+  };
+
   const getPackageIcon = (id: string) => {
     switch (id) {
       case 'mini': return '🌟';
@@ -68,6 +130,11 @@ export const CreditsScreen: React.FC = () => {
       case 'power': return '👑';
       default: return '🪙';
     }
+  };
+
+  const formatDate = (dateStr?: string) => {
+    if (!dateStr) return '';
+    return new Date(dateStr).toLocaleDateString('tr-TR');
   };
 
   if (loading) {
@@ -86,59 +153,158 @@ export const CreditsScreen: React.FC = () => {
       <StarBackground />
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>🪙 Kredi</Text>
+          <Text style={styles.headerTitle}>🪙 Kredi & Premium</Text>
         </View>
 
         {/* Current balance */}
         <View style={styles.balanceCard}>
-          <Text style={styles.balanceLabel}>Mevcut Bakiye</Text>
           <View style={styles.balanceRow}>
-            <Text style={styles.balanceIcon}>🪙</Text>
-            <Text style={styles.balanceValue}>{credits}</Text>
-            <Text style={styles.balanceUnit}>kredi</Text>
+            <View style={styles.balanceLeft}>
+              <Text style={styles.balanceLabel}>Mevcut Bakiye</Text>
+              <View style={styles.creditsRow}>
+                <Text style={styles.balanceIcon}>🪙</Text>
+                <Text style={styles.balanceValue}>{credits}</Text>
+              </View>
+            </View>
+            {subscriptionStatus?.isPremium && (
+              <View style={styles.premiumBadge}>
+                <Text style={styles.premiumBadgeText}>👑 PREMIUM</Text>
+                <Text style={styles.premiumExpiry}>
+                  {formatDate(subscriptionStatus?.premiumExpiresAt)} kadar
+                </Text>
+              </View>
+            )}
           </View>
         </View>
 
-        {/* Packages */}
-        <Text style={styles.packagesTitle}>Kredi Paketleri</Text>
-        <View style={styles.packagesGrid}>
-          {(packages ?? []).map((pkg) => (
-            <View
-              key={pkg?.id ?? ''}
-              style={[
-                styles.packageCard,
-                pkg?.id === 'power' && styles.packageCardPopular,
-              ]}
-            >
-              {pkg?.id === 'power' && (
-                <View style={styles.popularBadge}>
-                  <Text style={styles.popularText}>En Popüler</Text>
-                </View>
-              )}
-              <Text style={styles.packageIcon}>{getPackageIcon(pkg?.id ?? '')}</Text>
-              <Text style={styles.packageName}>{pkg?.name ?? ''}</Text>
-              <Text style={styles.packageCredits}>{pkg?.credits ?? 0} Kredi</Text>
-              <Text style={styles.packagePrice}>{pkg?.priceTL ?? 0} TL</Text>
-              <Pressable
-                style={[
-                  styles.buyButton,
-                  pkg?.id === 'power' && styles.buyButtonPopular,
-                ]}
-                onPress={() => handlePurchase(pkg?.id ?? '', pkg?.name ?? '')}
-                disabled={!!purchaseLoading}
-              >
-                {purchaseLoading === pkg?.id ? (
-                  <ActivityIndicator size="small" color={colors.background} />
-                ) : (
-                  <Text style={styles.buyButtonText}>Satın Al</Text>
-                )}
-              </Pressable>
-            </View>
-          ))}
+        {/* Tab switcher */}
+        <View style={styles.tabContainer}>
+          <Pressable
+            style={[styles.tab, activeTab === 'subscription' && styles.tabActive]}
+            onPress={() => setActiveTab('subscription')}
+          >
+            <Text style={[styles.tabText, activeTab === 'subscription' && styles.tabTextActive]}>
+              Premium Planlar
+            </Text>
+          </Pressable>
+          <Pressable
+            style={[styles.tab, activeTab === 'credits' && styles.tabActive]}
+            onPress={() => setActiveTab('credits')}
+          >
+            <Text style={[styles.tabText, activeTab === 'credits' && styles.tabTextActive]}>
+              Kredi Paketleri
+            </Text>
+          </Pressable>
         </View>
 
+        {activeTab === 'subscription' ? (
+          <>
+            {/* Active subscription info */}
+            {subscriptionStatus?.activeSubscription && (
+              <View style={styles.activeSubCard}>
+                <Text style={styles.activeSubTitle}>Aktif Aboneliğiniz</Text>
+                <Text style={styles.activeSubPlan}>
+                  {subscriptionStatus.activeSubscription.planType === 'weekly' && 'Haftalık Premium'}
+                  {subscriptionStatus.activeSubscription.planType === 'monthly' && 'Aylık Premium'}
+                  {subscriptionStatus.activeSubscription.planType === 'yearly' && 'Yıllık Premium'}
+                </Text>
+                <Text style={styles.activeSubExpiry}>
+                  Bitiş: {formatDate(subscriptionStatus.activeSubscription.endDate)}
+                </Text>
+                <Pressable style={styles.cancelButton} onPress={handleCancelSubscription}>
+                  <Text style={styles.cancelButtonText}>Aboneliği İptal Et</Text>
+                </Pressable>
+              </View>
+            )}
+
+            {/* Subscription plans */}
+            <View style={styles.plansContainer}>
+              {(subscriptionPlans ?? []).map((plan, index) => (
+                <View
+                  key={plan?.id ?? index}
+                  style={[
+                    styles.planCard,
+                    plan?.planType === 'yearly' && styles.planCardPopular,
+                  ]}
+                >
+                  {plan?.planType === 'yearly' && (
+                    <View style={styles.popularBadge}>
+                      <Text style={styles.popularText}>En Avantajlı</Text>
+                    </View>
+                  )}
+                  <Text style={styles.planIcon}>{getPlanIcon(plan?.planType ?? '')}</Text>
+                  <Text style={styles.planName}>{plan?.name ?? ''}</Text>
+                  <Text style={styles.planPrice}>{plan?.price ?? 0} TL</Text>
+                  <Text style={styles.planCredits}>+{plan?.credits ?? 0} Kredi</Text>
+                  <View style={styles.featuresContainer}>
+                    {(plan?.features ?? []).map((feature, i) => (
+                      <Text key={i} style={styles.featureText}>✓ {feature}</Text>
+                    ))}
+                  </View>
+                  <Pressable
+                    style={[
+                      styles.subscribeButton,
+                      plan?.planType === 'yearly' && styles.subscribeButtonPopular,
+                      subscriptionStatus?.isPremium && styles.subscribeButtonDisabled,
+                    ]}
+                    onPress={() => handleSubscribe(plan?.planType ?? '', plan?.name ?? '')}
+                    disabled={!!purchaseLoading || subscriptionStatus?.isPremium}
+                  >
+                    {purchaseLoading === plan?.planType ? (
+                      <ActivityIndicator size="small" color={colors.background} />
+                    ) : (
+                      <Text style={styles.subscribeButtonText}>
+                        {subscriptionStatus?.isPremium ? 'Aktif' : 'Abone Ol'}
+                      </Text>
+                    )}
+                  </Pressable>
+                </View>
+              ))}
+            </View>
+          </>
+        ) : (
+          <>
+            {/* Credit packages */}
+            <View style={styles.packagesGrid}>
+              {(packages ?? []).map((pkg) => (
+                <View
+                  key={pkg?.id ?? ''}
+                  style={[
+                    styles.packageCard,
+                    pkg?.id === 'power' && styles.packageCardPopular,
+                  ]}
+                >
+                  {pkg?.id === 'power' && (
+                    <View style={styles.popularBadge}>
+                      <Text style={styles.popularText}>En Popüler</Text>
+                    </View>
+                  )}
+                  <Text style={styles.packageIcon}>{getPackageIcon(pkg?.id ?? '')}</Text>
+                  <Text style={styles.packageName}>{pkg?.name ?? ''}</Text>
+                  <Text style={styles.packageCredits}>{pkg?.credits ?? 0} Kredi</Text>
+                  <Text style={styles.packagePrice}>{pkg?.priceTL ?? 0} TL</Text>
+                  <Pressable
+                    style={[
+                      styles.buyButton,
+                      pkg?.id === 'power' && styles.buyButtonPopular,
+                    ]}
+                    onPress={() => handlePurchase(pkg?.id ?? '', pkg?.name ?? '')}
+                    disabled={!!purchaseLoading}
+                  >
+                    {purchaseLoading === pkg?.id ? (
+                      <ActivityIndicator size="small" color={colors.background} />
+                    ) : (
+                      <Text style={styles.buyButtonText}>Satın Al</Text>
+                    )}
+                  </Pressable>
+                </View>
+              ))}
+            </View>
+          </>
+        )}
+
         <Text style={styles.note}>
-          ℹ️ Her fal baktırma 3 kredi düşer
+          ℹ️ Her fal baktırma 3 kredi düşer • Premium üyelerde reklam yok
         </Text>
       </ScrollView>
     </SafeAreaView>
@@ -157,9 +323,10 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 16,
+    paddingBottom: 32,
   },
   header: {
-    marginBottom: 24,
+    marginBottom: 20,
   },
   headerTitle: {
     fontSize: 24,
@@ -169,40 +336,173 @@ const styles = StyleSheet.create({
   balanceCard: {
     backgroundColor: colors.surface,
     borderRadius: 20,
-    padding: 24,
-    alignItems: 'center',
-    marginBottom: 32,
-    borderWidth: 2,
+    padding: 20,
+    marginBottom: 20,
+    borderWidth: 1,
     borderColor: colors.gold,
   },
-  balanceLabel: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginBottom: 8,
-  },
   balanceRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  balanceLeft: {},
+  balanceLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    marginBottom: 4,
+  },
+  creditsRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   balanceIcon: {
-    fontSize: 32,
+    fontSize: 28,
     marginRight: 8,
   },
   balanceValue: {
-    fontSize: 48,
+    fontSize: 36,
     fontWeight: 'bold',
     color: colors.gold,
   },
-  balanceUnit: {
-    fontSize: 18,
-    color: colors.textSecondary,
-    marginLeft: 8,
+  premiumBadge: {
+    backgroundColor: colors.gold,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 12,
+    alignItems: 'center',
   },
-  packagesTitle: {
-    fontSize: 18,
+  premiumBadgeText: {
+    color: colors.background,
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+  premiumExpiry: {
+    color: colors.background,
+    fontSize: 10,
+    marginTop: 2,
+  },
+  tabContainer: {
+    flexDirection: 'row',
+    backgroundColor: colors.surface,
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 20,
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+  tabActive: {
+    backgroundColor: colors.gold,
+  },
+  tabText: {
+    color: colors.textSecondary,
     fontWeight: '600',
+    fontSize: 14,
+  },
+  tabTextActive: {
+    color: colors.background,
+  },
+  activeSubCard: {
+    backgroundColor: colors.surfaceVariant,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: colors.gold,
+  },
+  activeSubTitle: {
+    fontSize: 12,
+    color: colors.textSecondary,
+  },
+  activeSubPlan: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: colors.gold,
+    marginTop: 4,
+  },
+  activeSubExpiry: {
+    fontSize: 14,
     color: colors.text,
-    marginBottom: 16,
+    marginTop: 4,
+  },
+  cancelButton: {
+    marginTop: 12,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  cancelButtonText: {
+    color: colors.error,
+    fontSize: 14,
+  },
+  plansContainer: {
+    gap: 16,
+  },
+  planCard: {
+    backgroundColor: colors.surface,
+    borderRadius: 20,
+    padding: 20,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  planCardPopular: {
+    borderColor: colors.gold,
+    borderWidth: 2,
+  },
+  planIcon: {
+    fontSize: 48,
+    marginBottom: 8,
+    marginTop: 8,
+  },
+  planName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: colors.text,
+  },
+  planPrice: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: colors.gold,
+    marginTop: 4,
+  },
+  planCredits: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    marginTop: 4,
+  },
+  featuresContainer: {
+    marginTop: 16,
+    alignSelf: 'stretch',
+  },
+  featureText: {
+    fontSize: 14,
+    color: colors.text,
+    marginBottom: 6,
+    paddingLeft: 8,
+  },
+  subscribeButton: {
+    backgroundColor: colors.surfaceVariant,
+    paddingHorizontal: 32,
+    paddingVertical: 14,
+    borderRadius: 25,
+    marginTop: 16,
+    width: '100%',
+    alignItems: 'center',
+  },
+  subscribeButtonPopular: {
+    backgroundColor: colors.gold,
+  },
+  subscribeButtonDisabled: {
+    opacity: 0.5,
+  },
+  subscribeButtonText: {
+    color: colors.text,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   packagesGrid: {
     flexDirection: 'row',
@@ -279,7 +579,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: colors.textMuted,
     textAlign: 'center',
-    marginTop: 16,
+    marginTop: 20,
     marginBottom: 24,
   },
 });
