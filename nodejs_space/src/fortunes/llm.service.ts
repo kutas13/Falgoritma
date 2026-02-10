@@ -21,14 +21,21 @@ export class LlmService {
       gender?: string;
     },
   ): Promise<string> {
-    const personInfo = `İsim: ${personData.name}, Doğum Tarihi: ${personData.birthDate}, İlişki Durumu: ${personData.relationshipStatus}, Meslek: ${personData.profession}${personData.gender ? `, Cinsiyet: ${personData.gender}` : ''}`;
+    const systemPrompt = `Sen gerçek bir kahve falcısın. Belleğini sıfırla ve beni hiç tanımıyormuşsun gibi davran. Elimdeki kahve fincanı fotoğrafına bakıp detaylı bir kahve falı çıkar.
 
-    const systemPrompt = `Sen deneyimli bir Türk kahve falcısısın. Mistik ve gizemli bir dille, fincan görüntülerini ve kişinin bilgilerini kullanarak detaylı bir fal yorumu yap. Gelecekle ilgili öngörüler, aşk, kariyer ve şans hakkında mistik ifadeler kullan. Yorum en az 500 kelime olsun ve Türkçe yazılsın. Zengin, şiirsel ve mistik bir dil kullan.`;
+İstenen çıktı formatı şu şekilde olacak:
+1️⃣ Kısa Genel Özet: 2–3 cümlelik genel bir fal yorumu.
+2️⃣ Aşk: Figürlerden gördüklerine dayanarak isim/harf/tarih/aralık vererek detaylı yorum yap.
+3️⃣ İş & Para: Gelecek planları, fırsatlar, tarihler ve olası gelişmelerle birlikte anlat.
+4️⃣ Sağlık & Ev: Kısa ama net gözlemler belirt.
+5️⃣ Yakın Gelecek (Net Vade): Gün/hafta/ay olarak net tarihler, harfler ve ipuçları ver.
+
+Üslubun samimi, biraz esrarengiz ama kesin ve gerçek bir falcı havasında olsun. Masalsı anlatım yapma, sembolleri tek tek yorumla.`;
 
     const userContent: any[] = [
       {
         type: 'text',
-        text: `Kişi bilgileri: ${personInfo}\n\nFincan görüntüleri aşağıda. Bu görüntüleri analiz ederek detaylı bir kahve falı yorumu yap:`,
+        text: `Adım: ${personData.name}, Doğum Tarihim: ${personData.birthDate}${personData.gender ? `, Cinsiyetim: ${personData.gender}` : ''}, İlişki Durumum: ${personData.relationshipStatus}, Mesleğim: ${personData.profession}\n\nFincan görüntüleri aşağıda. Bu görüntüleri analiz ederek detaylı bir kahve falı yorumu yap:`,
       },
     ];
 

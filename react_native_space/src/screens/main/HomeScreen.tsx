@@ -11,7 +11,6 @@ import {
 import { Text, TextInput, Menu, Chip } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as ImagePicker from 'expo-image-picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAuth } from '../../context/AuthContext';
@@ -21,6 +20,12 @@ import { LoadingOverlay } from '../../components/LoadingOverlay';
 import { StarBackground } from '../../components/StarBackground';
 import { colors } from '../../theme';
 import { RootStackParamList, GuestData } from '../../types';
+
+// Conditionally import DateTimePicker only for native platforms
+let DateTimePicker: any = null;
+if (Platform.OS !== 'web') {
+  DateTimePicker = require('@react-native-community/datetimepicker').default;
+}
 
 const RELATIONSHIP_OPTIONS = ['Bekar', 'Evli', 'Platonik', 'Diğer'];
 const GENDER_OPTIONS = ['Kadın', 'Erkek', 'Diğer'];
@@ -155,40 +160,64 @@ export const HomeScreen: React.FC = () => {
       <LoadingOverlay visible={loading} message="Enerjin Analiz Ediliyor..." />
 
       <ScrollView contentContainerStyle={styles.scrollContent}>
-        {/* Header with credits */}
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>☕ Fal Baktır</Text>
-          <View style={styles.creditBadge}>
-            <Text style={styles.creditIcon}>🪙</Text>
-            <Text style={styles.creditText}>{credits}</Text>
+        {/* Header */}
+        <View style={styles.headerSection}>
+          <View style={styles.headerTop}>
+            <View>
+              <Text style={styles.greeting}>Merhaba, {user?.fullName?.split(' ')?.[0] || 'Falcı'} 👋</Text>
+              <Text style={styles.headerSubtitle}>Bugün fincanında ne var?</Text>
+            </View>
+            <Pressable style={styles.creditBadge}>
+              <Text style={styles.creditIcon}>🪙</Text>
+              <Text style={styles.creditText}>{credits} Kredi</Text>
+            </Pressable>
+          </View>
+          
+          {/* Hero Card */}
+          <View style={styles.heroCard}>
+            <Text style={styles.heroEmoji}>☕🔮</Text>
+            <Text style={styles.heroTitle}>Kahve Falı</Text>
+            <Text style={styles.heroDescription}>
+              Fincanınızı çevirin, fotoğrafını çekin ve geleceğinizi keşfedin
+            </Text>
           </View>
         </View>
 
         {/* Photo slots */}
         <View style={styles.photoSection}>
-          <Text style={styles.sectionTitle}>Fincan Fotoğrafları</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>📸 Fincan Fotoğrafları</Text>
+            <Text style={styles.photoCount}>{photos?.filter(Boolean)?.length ?? 0}/5</Text>
+          </View>
           <Text style={styles.sectionSubtitle}>
-            En az 1, en fazla 5 fotoğraf yükleyin
+            En az 1 fotoğraf yükleyin • Uzun basarak silin
           </Text>
           <View style={styles.photoGrid}>
             {[0, 1, 2, 3, 4].map((index) => (
               <Pressable
                 key={index}
-                style={styles.photoSlot}
+                style={[
+                  styles.photoSlot,
+                  photos?.[index] && styles.photoSlotFilled,
+                  index === 0 && !photos?.[0] && styles.photoSlotMain
+                ]}
                 onPress={() => pickImage(index)}
                 onLongPress={() => photos?.[index] && removePhoto(index)}
               >
                 {photos?.[index] ? (
-                  <Image
-                    source={{ uri: photos[index] }}
-                    style={styles.photoImage}
-                  />
+                  <>
+                    <Image
+                      source={{ uri: photos[index] }}
+                      style={styles.photoImage}
+                    />
+                    <View style={styles.photoOverlay}>
+                      <Text style={styles.photoNumber}>{index + 1}</Text>
+                    </View>
+                  </>
                 ) : (
                   <View style={styles.photoPlaceholder}>
-                    <Text style={styles.photoPlaceholderIcon}>📷</Text>
-                    <Text style={styles.photoPlaceholderText}>
-                      {index === 0 ? 'Ekle' : ''}
-                    </Text>
+                    <Text style={styles.photoPlaceholderIcon}>{index === 0 ? '📷' : '+'}</Text>
+                    {index === 0 && <Text style={styles.photoPlaceholderText}>Ekle</Text>}
                   </View>
                 )}
               </Pressable>
@@ -271,33 +300,62 @@ export const HomeScreen: React.FC = () => {
               ))}
             </Menu>
 
-            <Pressable onPress={() => setShowDatePicker(true)}>
-              <TextInput
-                label="Doğum Tarihi"
-                value={formatDate(guestBirthDate)}
-                mode="outlined"
-                style={styles.input}
-                editable={false}
-                right={<TextInput.Icon icon="calendar" color={colors.placeholder} />}
-                outlineColor={colors.border}
-                textColor={colors.text}
-                theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
-              />
-            </Pressable>
+            {Platform.OS === 'web' ? (
+              <View style={styles.webDateContainer}>
+                <Text style={styles.webDateLabel}>Doğum Tarihi</Text>
+                <input
+                  type="date"
+                  value={guestBirthDate ? guestBirthDate.toISOString().split('T')[0] : ''}
+                  onChange={(e) => {
+                    const dateValue = e.target.value;
+                    if (dateValue) {
+                      setGuestBirthDate(new Date(dateValue));
+                    }
+                  }}
+                  max={new Date().toISOString().split('T')[0]}
+                  style={{
+                    width: '100%',
+                    padding: 16,
+                    fontSize: 16,
+                    backgroundColor: colors.background,
+                    color: colors.text,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: 4,
+                    marginBottom: 12,
+                  }}
+                />
+              </View>
+            ) : (
+              <>
+                <Pressable onPress={() => setShowDatePicker(true)}>
+                  <TextInput
+                    label="Doğum Tarihi"
+                    value={formatDate(guestBirthDate)}
+                    mode="outlined"
+                    style={styles.input}
+                    editable={false}
+                    right={<TextInput.Icon icon="calendar" color={colors.placeholder} />}
+                    outlineColor={colors.border}
+                    textColor={colors.text}
+                    theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
+                  />
+                </Pressable>
 
-            {showDatePicker && (
-              <DateTimePicker
-                value={guestBirthDate ?? new Date(1990, 0, 1)}
-                mode="date"
-                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                maximumDate={new Date()}
-                onChange={(event, selectedDate) => {
-                  setShowDatePicker(Platform.OS === 'ios');
-                  if (selectedDate) {
-                    setGuestBirthDate(selectedDate);
-                  }
-                }}
-              />
+                {showDatePicker && DateTimePicker && (
+                  <DateTimePicker
+                    value={guestBirthDate ?? new Date(1990, 0, 1)}
+                    mode="date"
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    maximumDate={new Date()}
+                    onChange={(event: any, selectedDate?: Date) => {
+                      setShowDatePicker(Platform.OS === 'ios');
+                      if (selectedDate) {
+                        setGuestBirthDate(selectedDate);
+                      }
+                    }}
+                  />
+                )}
+              </>
             )}
 
             <Menu
@@ -368,67 +426,139 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 16,
+    paddingBottom: 32,
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+  headerSection: {
     marginBottom: 24,
   },
-  headerTitle: {
-    fontSize: 24,
+  headerTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 20,
+  },
+  greeting: {
+    fontSize: 22,
     fontWeight: 'bold',
-    color: colors.gold,
+    color: colors.text,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginTop: 2,
   },
   creditBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.surfaceVariant,
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.gold,
   },
   creditIcon: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 6,
   },
   creditText: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: colors.gold,
   },
+  heroCard: {
+    backgroundColor: colors.surface,
+    borderRadius: 20,
+    padding: 24,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  heroEmoji: {
+    fontSize: 48,
+    marginBottom: 12,
+  },
+  heroTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors.gold,
+    marginBottom: 8,
+  },
+  heroDescription: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    lineHeight: 20,
+  },
   photoSection: {
     marginBottom: 24,
+    backgroundColor: colors.surface,
+    borderRadius: 16,
+    padding: 16,
   },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.text,
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 4,
   },
-  sectionSubtitle: {
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
+  },
+  photoCount: {
     fontSize: 14,
+    color: colors.gold,
+    fontWeight: 'bold',
+  },
+  sectionSubtitle: {
+    fontSize: 12,
     color: colors.textSecondary,
     marginBottom: 12,
   },
   photoGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 12,
+    gap: 10,
   },
   photoSlot: {
-    width: 100,
-    height: 100,
+    width: 58,
+    height: 58,
     borderRadius: 12,
     overflow: 'hidden',
-    backgroundColor: colors.surface,
-    borderWidth: 2,
+    backgroundColor: colors.surfaceVariant,
+    borderWidth: 1,
     borderColor: colors.border,
     borderStyle: 'dashed',
+  },
+  photoSlotFilled: {
+    borderStyle: 'solid',
+    borderColor: colors.gold,
+  },
+  photoSlotMain: {
+    borderColor: colors.gold,
+    borderWidth: 2,
   },
   photoImage: {
     width: '100%',
     height: '100%',
+  },
+  photoOverlay: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    backgroundColor: colors.gold,
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  photoNumber: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: colors.background,
   },
   photoPlaceholder: {
     flex: 1,
@@ -436,12 +566,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   photoPlaceholderIcon: {
-    fontSize: 32,
+    fontSize: 20,
+    color: colors.textMuted,
   },
   photoPlaceholderText: {
-    fontSize: 12,
+    fontSize: 10,
     color: colors.textMuted,
-    marginTop: 4,
+    marginTop: 2,
   },
   selectionSection: {
     marginBottom: 24,
@@ -482,6 +613,14 @@ const styles = StyleSheet.create({
   },
   menuItemTitle: {
     color: colors.text,
+  },
+  webDateContainer: {
+    marginBottom: 0,
+  },
+  webDateLabel: {
+    color: colors.placeholder,
+    fontSize: 12,
+    marginBottom: 4,
   },
   submitSection: {
     alignItems: 'center',

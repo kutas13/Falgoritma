@@ -32,16 +32,64 @@ const MainTabs = () => (
   <Tab.Navigator
     screenOptions={{
       headerShown: false,
-      tabBarStyle: { backgroundColor: colors.surface, borderTopColor: colors.border, paddingTop: 8, height: 60 },
+      tabBarStyle: { 
+        backgroundColor: colors.surface, 
+        borderTopColor: colors.border, 
+        borderTopWidth: 1,
+        paddingTop: 8, 
+        paddingBottom: 8,
+        height: 70,
+      },
       tabBarActiveTintColor: colors.gold,
       tabBarInactiveTintColor: colors.textMuted,
-      tabBarLabelStyle: { fontSize: 12, marginBottom: 8 },
+      tabBarLabelStyle: { 
+        fontSize: 11, 
+        fontWeight: '600',
+        marginTop: 2,
+      },
+      tabBarShowLabel: true,
     }}
   >
-    <Tab.Screen name="Home" component={HomeScreen} options={{ tabBarLabel: 'Ana Sayfa', tabBarIcon: () => <Text style={{ fontSize: 20 }}>☕</Text> }} />
-    <Tab.Screen name="History" component={HistoryScreen} options={{ tabBarLabel: 'Geçmiş', tabBarIcon: () => <Text style={{ fontSize: 20 }}>📜</Text> }} />
-    <Tab.Screen name="Credits" component={CreditsScreen} options={{ tabBarLabel: 'Kredi', tabBarIcon: () => <Text style={{ fontSize: 20 }}>🪙</Text> }} />
-    <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: 'Profil', tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text> }} />
+    <Tab.Screen 
+      name="Home" 
+      component={HomeScreen} 
+      options={{ 
+        tabBarLabel: 'Ana Sayfa', 
+        tabBarIcon: ({ focused }) => (
+          <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.6 }}>☕</Text>
+        )
+      }} 
+    />
+    <Tab.Screen 
+      name="History" 
+      component={HistoryScreen} 
+      options={{ 
+        tabBarLabel: 'Fal Geçmişi', 
+        tabBarIcon: ({ focused }) => (
+          <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.6 }}>📜</Text>
+        )
+      }} 
+    />
+    <Tab.Screen 
+      name="Credits" 
+      component={CreditsScreen} 
+      options={{ 
+        tabBarLabel: 'Kredi', 
+        tabBarIcon: ({ focused }) => (
+          <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.6 }}>🪙</Text>
+        )
+      }} 
+    />
+    <Tab.Screen 
+      name="Profile" 
+      component={ProfileScreen} 
+      options={{ 
+        tabBarLabel: 'Profil', 
+        tabBarIcon: ({ focused }) => (
+          <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.6 }}>👤</Text>
+        )
+      }} 
+    />
   </Tab.Navigator>
 );
 
