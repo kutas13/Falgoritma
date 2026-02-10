@@ -49,7 +49,8 @@ export class LlmService {
     }
 
     try {
-      this.logger.log(`Generating fortune for: ${personData.name}`);
+      this.logger.log(`Generating fortune for: ${personData.name}, photos: ${photos.length}`);
+      this.logger.log(`API Key present: ${!!this.apiKey}`);
       
       const response = await fetch(this.apiUrl, {
         method: 'POST',

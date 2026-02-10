@@ -22,7 +22,7 @@ class ApiService {
   constructor() {
     this.api = axios.create({
       baseURL: BASE_URL,
-      timeout: 30000,
+      timeout: 120000, // 2 dakika - LLM işlemi uzun sürebilir
       headers: {
         'Content-Type': 'application/json',
       },
