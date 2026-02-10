@@ -52,13 +52,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = async (email: string, password: string) => {
     const response = await apiService.login(email, password);
-    await AsyncStorage.setItem('auth_token', response?.access_token ?? '');
+    const token = response?.token ?? response?.access_token ?? '';
+    await AsyncStorage.setItem('auth_token', token);
     setUser(response?.user ?? null);
   };
 
   const register = async (email: string, password: string) => {
     const response = await apiService.register(email, password);
-    await AsyncStorage.setItem('auth_token', response?.access_token ?? '');
+    const token = response?.token ?? response?.access_token ?? '';
+    await AsyncStorage.setItem('auth_token', token);
     setUser(response?.user ?? null);
   };
 
