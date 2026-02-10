@@ -66,6 +66,16 @@ class ApiService {
     return response?.data;
   }
 
+  async googleAuth(idToken: string): Promise<AuthResponse> {
+    const response = await this.api.post<AuthResponse>('/api/auth/google', { idToken });
+    return response?.data;
+  }
+
+  async appleAuth(identityToken: string, fullName?: string): Promise<AuthResponse> {
+    const response = await this.api.post<AuthResponse>('/api/auth/apple', { identityToken, fullName });
+    return response?.data;
+  }
+
   async getMe(): Promise<User> {
     const response = await this.api.get<User>('/api/auth/me');
     return response?.data;

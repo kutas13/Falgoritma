@@ -9,6 +9,8 @@ interface AuthContextType {
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
+  googleSignIn: (idToken: string) => Promise<void>;
+  appleSignIn: (identityToken: string, fullName?: string) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
   updateUserCredits: (credits: number) => void;
@@ -64,6 +66,20 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setUser(response?.user ?? null);
   };
 
+  const googleSignIn = async (idToken: string) => {
+    const response = await apiService.googleAuth(idToken);
+    const token = response?.token ?? response?.access_token ?? '';
+    await AsyncStorage.setItem('auth_token', token);
+    setUser(response?.user ?? null);
+  };
+
+  const appleSignIn = async (identityToken: string, fullName?: string) => {
+    const response = await apiService.appleAuth(identityToken, fullName);
+    const token = response?.token ?? response?.access_token ?? '';
+    await AsyncStorage.setItem('auth_token', token);
+    setUser(response?.user ?? null);
+  };
+
   const refreshUser = async () => {
     try {
       const userData = await apiService.getMe();
@@ -87,6 +103,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         isAuthenticated: !!user,
         login,
         register,
+        googleSignIn,
+        appleSignIn,
         logout,
         refreshUser,
         updateUserCredits,

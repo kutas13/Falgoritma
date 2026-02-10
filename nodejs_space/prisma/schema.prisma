@@ -11,6 +11,8 @@ model user {
   id                  String    @id @default(uuid())
   email               String    @unique
   passwordHash        String    @map("password_hash")
+  googleId            String?   @unique @map("google_id")
+  appleId             String?   @unique @map("apple_id")
   fullName            String?   @map("full_name")
   birthDate           DateTime? @map("birth_date")
   relationshipStatus  String?   @map("relationship_status")
