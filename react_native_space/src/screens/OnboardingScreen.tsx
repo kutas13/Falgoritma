@@ -20,7 +20,7 @@ if (Platform.OS !== 'web') {
   DateTimePicker = require('@react-native-community/datetimepicker').default;
 }
 
-const RELATIONSHIP_OPTIONS = ['Bekar', 'Evli', 'Platonik', 'Diğer'];
+const RELATIONSHIP_OPTIONS = ['Bekar', 'İlişkisi Var', 'Evli', 'Platonik', 'Diğer'];
 
 export const OnboardingScreen: React.FC = () => {
   const { refreshUser } = useAuth();

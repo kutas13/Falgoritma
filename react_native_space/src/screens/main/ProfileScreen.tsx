@@ -16,7 +16,7 @@ import { StarBackground } from '../../components/StarBackground';
 import { colors } from '../../theme';
 import { User } from '../../types';
 
-const RELATIONSHIP_OPTIONS = ['Bekar', 'Evli', 'Platonik', 'Diğer'];
+const RELATIONSHIP_OPTIONS = ['Bekar', 'İlişkisi Var', 'Evli', 'Platonik', 'Diğer'];
 
 export const ProfileScreen: React.FC = () => {
   const { logout, refreshUser } = useAuth();

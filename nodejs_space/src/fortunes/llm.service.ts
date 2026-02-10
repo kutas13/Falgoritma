@@ -5,10 +5,10 @@ import { ConfigService } from '@nestjs/config';
 export class LlmService {
   private readonly logger = new Logger(LlmService.name);
   private readonly apiKey: string;
-  private readonly apiUrl = 'https://apps.abacus.ai/v1/chat/completions';
+  private readonly apiUrl = 'https://api.openai.com/v1/chat/completions';
 
   constructor(private configService: ConfigService) {
-    this.apiKey = this.configService.get<string>('ABACUSAI_API_KEY') || '';
+    this.apiKey = this.configService.get<string>('OPENAI_API_KEY') || '';
   }
 
   async generateFortuneInterpretation(
@@ -50,7 +50,6 @@ export class LlmService {
 
     try {
       this.logger.log(`Generating fortune for: ${personData.name}, photos: ${photos.length}`);
-      this.logger.log(`API Key present: ${!!this.apiKey}`);
       
       const response = await fetch(this.apiUrl, {
         method: 'POST',
@@ -65,14 +64,13 @@ export class LlmService {
             { role: 'user', content: userContent },
           ],
           max_tokens: 2000,
-          stream: false,
         }),
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        this.logger.error(`LLM API error: ${errorText}`);
-        throw new Error(`LLM API error: ${response.status}`);
+        this.logger.error(`OpenAI API error: ${errorText}`);
+        throw new Error(`OpenAI API error: ${response.status}`);
       }
 
       const data = await response.json();
