@@ -8,12 +8,17 @@ import {
   Pressable,
 } from 'react-native';
 import { Text, TextInput, Menu } from 'react-native-paper';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { useAuth } from '../context/AuthContext';
 import { apiService } from '../services/api';
 import { GoldButton } from '../components/GoldButton';
 import { StarBackground } from '../components/StarBackground';
 import { colors } from '../theme';
+
+// Conditionally import DateTimePicker only for native platforms
+let DateTimePicker: any = null;
+if (Platform.OS !== 'web') {
+  DateTimePicker = require('@react-native-community/datetimepicker').default;
+}
 
 const RELATIONSHIP_OPTIONS = ['Bekar', 'Evli', 'Platonik', 'Diğer'];
 
@@ -101,34 +106,63 @@ export const OnboardingScreen: React.FC = () => {
               theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
             />
 
-            <Pressable onPress={() => setShowDatePicker(true)}>
-              <TextInput
-                label="Doğum Tarihi"
-                value={formatDate(birthDate)}
-                mode="outlined"
-                style={styles.input}
-                outlineColor={colors.border}
-                activeOutlineColor={colors.gold}
-                textColor={colors.text}
-                editable={false}
-                right={<TextInput.Icon icon="calendar" color={colors.placeholder} />}
-                theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
-              />
-            </Pressable>
+            {Platform.OS === 'web' ? (
+              <View style={styles.webDateContainer}>
+                <Text style={styles.webDateLabel}>Doğum Tarihi</Text>
+                <input
+                  type="date"
+                  value={birthDate ? birthDate.toISOString().split('T')[0] : ''}
+                  onChange={(e) => {
+                    const dateValue = e.target.value;
+                    if (dateValue) {
+                      setBirthDate(new Date(dateValue));
+                    }
+                  }}
+                  max={new Date().toISOString().split('T')[0]}
+                  style={{
+                    width: '100%',
+                    padding: 16,
+                    fontSize: 16,
+                    backgroundColor: colors.surface,
+                    color: colors.text,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: 4,
+                    marginBottom: 16,
+                  }}
+                />
+              </View>
+            ) : (
+              <>
+                <Pressable onPress={() => setShowDatePicker(true)}>
+                  <TextInput
+                    label="Doğum Tarihi"
+                    value={formatDate(birthDate)}
+                    mode="outlined"
+                    style={styles.input}
+                    outlineColor={colors.border}
+                    activeOutlineColor={colors.gold}
+                    textColor={colors.text}
+                    editable={false}
+                    right={<TextInput.Icon icon="calendar" color={colors.placeholder} />}
+                    theme={{ colors: { onSurfaceVariant: colors.placeholder } }}
+                  />
+                </Pressable>
 
-            {showDatePicker && (
-              <DateTimePicker
-                value={birthDate ?? new Date(1990, 0, 1)}
-                mode="date"
-                display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-                maximumDate={new Date()}
-                onChange={(event, selectedDate) => {
-                  setShowDatePicker(Platform.OS === 'ios');
-                  if (selectedDate) {
-                    setBirthDate(selectedDate);
-                  }
-                }}
-              />
+                {showDatePicker && DateTimePicker && (
+                  <DateTimePicker
+                    value={birthDate ?? new Date(1990, 0, 1)}
+                    mode="date"
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    maximumDate={new Date()}
+                    onChange={(event: any, selectedDate?: Date) => {
+                      setShowDatePicker(Platform.OS === 'ios');
+                      if (selectedDate) {
+                        setBirthDate(selectedDate);
+                      }
+                    }}
+                  />
+                )}
+              </>
             )}
 
             <Menu
@@ -245,6 +279,14 @@ const styles = StyleSheet.create({
   },
   menuItemTitle: {
     color: colors.text,
+  },
+  webDateContainer: {
+    marginBottom: 0,
+  },
+  webDateLabel: {
+    color: colors.placeholder,
+    fontSize: 12,
+    marginBottom: 4,
   },
   error: {
     color: colors.error,
