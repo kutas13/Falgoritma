@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id                  String    @id @default(uuid())
+  email               String    @unique
+  passwordHash        String    @map("password_hash")
+  fullName            String?   @map("full_name")
+  birthDate           DateTime? @map("birth_date")
+  relationshipStatus  String?   @map("relationship_status")
+  profession          String?
+  credits             Int       @default(0)
+  onboardingCompleted Boolean   @default(false) @map("onboarding_completed")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+  fortunes            fortune[]
+
+  @@map("users")
+}
+
+model fortune {
+  id                     String    @id @default(uuid())
+  userId                 String    @map("user_id")
+  photos                 Json
+  forSelf                Boolean   @map("for_self")
+  guestName              String?   @map("guest_name")
+  guestGender            String?   @map("guest_gender")
+  guestBirthDate         DateTime? @map("guest_birth_date")
+  guestRelationshipStatus String?  @map("guest_relationship_status")
+  guestProfession        String?   @map("guest_profession")
+  interpretation         String
+  createdAt              DateTime  @default(now()) @map("created_at")
+  user                   user      @relation(fields: [userId], references: [id])
+
+  @@map("fortunes")
+}
