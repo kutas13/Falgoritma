@@ -24,7 +24,7 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://falgoritma.abacusai.app"
+        "EXPO_PUBLIC_API_URL": "https://10e655aef2.na106.preview.abacusai.app/"
       }
     },
     "production": {
