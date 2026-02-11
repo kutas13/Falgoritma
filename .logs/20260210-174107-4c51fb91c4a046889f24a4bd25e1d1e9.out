@@ -1,0 +1,35 @@
+[2J[3J[H[[90m5:41:08 PM[0m] Starting compilation in watch mode...
+
+[[90m5:41:10 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +56ms[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:41:10 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m
+[32m[Nest] 2976  - [39m02/10/2026, 5:44:55 PM [32m    LOG[39m [38;5;3m[AuthService] [39m[32mUser registered: gmyusuf13@gmail.com[39m

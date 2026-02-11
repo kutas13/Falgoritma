@@ -1,0 +1,71 @@
+Warning: You did not specify an output path for your `generator` in schema.prisma. This behavior is deprecated and will no longer be supported in Prisma 7.0.0. To learn more visit https://pris.ly/cli/output-path
+[31m[Nest] 715  - [39m02/10/2026, 6:16:11 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPrismaClientKnownRequestError: 
+Invalid `this.prisma.user.findUnique()` invocation in
+/home/ubuntu/falgoritma/nodejs_space/src/auth/auth.service.ts:28:45
+
+  25 }
+  26 
+  27 async register(dto: RegisterDto) {
+→ 28   const existing = await this.prisma.user.findUnique(
+The table `public.users` does not exist in the current database.
+    at zn.handleRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:7459)
+    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6784)
+    at zn.request (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6491)
+    at async l (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:130:9778)
+    at async AuthService.register [90m(/home/ubuntu/falgoritma/nodejs_space/[39msrc/auth/auth.service.ts:28:22[90m)[39m
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-execution-context.js:46:28
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-proxy.js:9:17 {
+  code: [32m'P2021'[39m,
+  meta: {
+    modelName: [32m'user'[39m,
+    table: [32m'public.users'[39m
+  },
+  clientVersion: [32m'6.7.0'[39m
+}
+[31m[Nest] 715  - [39m02/10/2026, 6:16:19 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPrismaClientKnownRequestError: 
+Invalid `this.prisma.user.findUnique()` invocation in
+/home/ubuntu/falgoritma/nodejs_space/src/auth/auth.service.ts:28:45
+
+  25 }
+  26 
+  27 async register(dto: RegisterDto) {
+→ 28   const existing = await this.prisma.user.findUnique(
+The table `public.users` does not exist in the current database.
+    at zn.handleRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:7459)
+    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6784)
+    at zn.request (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6491)
+    at async l (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:130:9778)
+    at async AuthService.register [90m(/home/ubuntu/falgoritma/nodejs_space/[39msrc/auth/auth.service.ts:28:22[90m)[39m
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-execution-context.js:46:28
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-proxy.js:9:17 {
+  code: [32m'P2021'[39m,
+  meta: {
+    modelName: [32m'user'[39m,
+    table: [32m'public.users'[39m
+  },
+  clientVersion: [32m'6.7.0'[39m
+}
+[31m[Nest] 715  - [39m02/10/2026, 6:16:24 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPrismaClientKnownRequestError: 
+Invalid `this.prisma.user.findUnique()` invocation in
+/home/ubuntu/falgoritma/nodejs_space/src/auth/auth.service.ts:28:45
+
+  25 }
+  26 
+  27 async register(dto: RegisterDto) {
+→ 28   const existing = await this.prisma.user.findUnique(
+The table `public.users` does not exist in the current database.
+    at zn.handleRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:7459)
+    at zn.handleAndLogRequestError (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6784)
+    at zn.request (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:121:6491)
+    at async l (/opt/hostedapp/node/root/nodejs/node_modules/[4m@prisma[24m/client/runtime/library.js:130:9778)
+    at async AuthService.register [90m(/home/ubuntu/falgoritma/nodejs_space/[39msrc/auth/auth.service.ts:28:22[90m)[39m
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-execution-context.js:46:28
+    at async /opt/hostedapp/node/root/nodejs/node_modules/[4m@nestjs[24m/core/router/router-proxy.js:9:17 {
+  code: [32m'P2021'[39m,
+  meta: {
+    modelName: [32m'user'[39m,
+    table: [32m'public.users'[39m
+  },
+  clientVersion: [32m'6.7.0'[39m
+}
+Terminated

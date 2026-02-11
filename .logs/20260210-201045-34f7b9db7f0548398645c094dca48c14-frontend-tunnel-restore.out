@@ -1,0 +1,13 @@
+Starting project at /home/ubuntu/falgoritma/react_native_space
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Tunnel connected.
+Tunnel ready.
+Waiting on http://localhost:8082
+Logs for your project will appear below.
+iOS ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+iOS ./index.ts ▓▓░░░░░░░░░░░░░░ 17.8% (203/484)
+iOS ./index.ts ▓▓▓▓▓▓▓░░░░░░░░░ 45.2% (511/783)
+iOS ./index.ts ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 72.2% ( 855/1031)
+iOS ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 89.8% (1137/1200)
+iOS Bundled 17392ms index.ts (1297 modules)

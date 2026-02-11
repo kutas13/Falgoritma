@@ -1,0 +1,351 @@
+[2J[3J[H[[90m5:50:52 PM[0m] Starting compilation in watch mode...
+
+[[90m5:50:54 PM[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m6:00:45 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m6:00:45 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +55ms[39m
+[32m[Nest] 4733  - [39m02/10/2026, 6:00:45 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m
+[2J[3J[H[[90m6:00:53 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m6:00:53 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +52ms[39m
+[32m[Nest] 4773  - [39m02/10/2026, 6:00:53 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m
+[2J[3J[H[[90m6:00:54 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m6:00:54 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +12ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +52ms[39m
+[32m[Nest] 4798  - [39m02/10/2026, 6:00:55 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m
+[2J[3J[H[[90m6:00:55 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m6:00:56 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +10ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +11ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +53ms[39m
+[32m[Nest] 4818  - [39m02/10/2026, 6:00:56 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m
+[2J[3J[H[[90m6:01:01 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.service.ts[0m:[93m19[0m:[93m28[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'typeof JwksRsa' has no call signatures.
+
+[7m19[0m     this.appleJwksClient = jwksClient({
+[7m  [0m [91m                           ~~~~~~~~~~[0m
+
+  [96msrc/auth/auth.service.ts[0m:[93m6[0m:[93m1[0m
+    [7m6[0m import * as jwksClient from 'jwks-rsa';
+    [7m [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+[[90m6:01:01 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m6:01:16 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.service.ts[0m:[93m19[0m:[93m28[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'typeof JwksRsa' has no call signatures.
+
+[7m19[0m     this.appleJwksClient = jwksClient({
+[7m  [0m [91m                           ~~~~~~~~~~[0m
+
+  [96msrc/auth/auth.service.ts[0m:[93m6[0m:[93m1[0m
+    [7m6[0m import * as jwksClient from 'jwks-rsa';
+    [7m [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+[96msrc/auth/auth.service.ts[0m:[93m99[0m:[93m13[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'googleId' does not exist in type '(Without<userCreateInput, userUncheckedCreateInput> & userUncheckedCreateInput) | (Without<...> & userCreateInput)'.
+
+[7m99[0m             googleId,
+[7m  [0m [91m            ~~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m1963[0m:[93m5[0m
+    [7m1963[0m     data: XOR<userCreateInput, userUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedCreateInput) | (Without<...> & userCreateInput); }'
+
+[96msrc/auth/auth.service.ts[0m:[93m105[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'googleId' does not exist on type '{ id: string; email: string; passwordHash: string; fullName: string | null; birthDate: Date | null; relationshipStatus: string | null; profession: string | null; credits: number; onboardingCompleted: boolean; createdAt: Date; updatedAt: Date; }'.
+
+[7m105[0m       } else if (!user.googleId) {
+[7m   [0m [91m                       ~~~~~~~~[0m
+
+[96msrc/auth/auth.service.ts[0m:[93m109[0m:[93m19[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'googleId' does not exist in type '(Without<userUpdateInput, userUncheckedUpdateInput> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput)'.
+
+[7m109[0m           data: { googleId },
+[7m   [0m [91m                  ~~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m2015[0m:[93m5[0m
+    [7m2015[0m     data: XOR<userUpdateInput, userUncheckedUpdateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput); where: userWhereUniqueInput; }'
+
+[96msrc/auth/auth.service.ts[0m:[93m162[0m:[93m13[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'appleId' does not exist in type '(Without<userCreateInput, userUncheckedCreateInput> & userUncheckedCreateInput) | (Without<...> & userCreateInput)'.
+
+[7m162[0m             appleId,
+[7m   [0m [91m            ~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m1963[0m:[93m5[0m
+    [7m1963[0m     data: XOR<userCreateInput, userUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedCreateInput) | (Without<...> & userCreateInput); }'
+
+[96msrc/auth/auth.service.ts[0m:[93m168[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'appleId' does not exist on type '{ id: string; email: string; passwordHash: string; fullName: string | null; birthDate: Date | null; relationshipStatus: string | null; profession: string | null; credits: number; onboardingCompleted: boolean; createdAt: Date; updatedAt: Date; }'.
+
+[7m168[0m       } else if (!user.appleId) {
+[7m   [0m [91m                       ~~~~~~~[0m
+
+[96msrc/auth/auth.service.ts[0m:[93m172[0m:[93m19[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'appleId' does not exist in type '(Without<userUpdateInput, userUncheckedUpdateInput> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput)'.
+
+[7m172[0m           data: { appleId },
+[7m   [0m [91m                  ~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m2015[0m:[93m5[0m
+    [7m2015[0m     data: XOR<userUpdateInput, userUncheckedUpdateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput); where: userWhereUniqueInput; }'
+
+[[90m6:01:16 PM[0m] Found 7 errors. Watching for file changes.
+
+[2J[3J[H[[90m6:01:29 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.service.ts[0m:[93m19[0m:[93m28[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'typeof JwksRsa' has no call signatures.
+
+[7m19[0m     this.appleJwksClient = jwksClient({
+[7m  [0m [91m                           ~~~~~~~~~~[0m
+
+  [96msrc/auth/auth.service.ts[0m:[93m6[0m:[93m1[0m
+    [7m6[0m import * as jwksClient from 'jwks-rsa';
+    [7m [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+[96msrc/auth/auth.service.ts[0m:[93m99[0m:[93m13[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'googleId' does not exist in type '(Without<userCreateInput, userUncheckedCreateInput> & userUncheckedCreateInput) | (Without<...> & userCreateInput)'.
+
+[7m99[0m             googleId,
+[7m  [0m [91m            ~~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m1963[0m:[93m5[0m
+    [7m1963[0m     data: XOR<userCreateInput, userUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedCreateInput) | (Without<...> & userCreateInput); }'
+
+[96msrc/auth/auth.service.ts[0m:[93m105[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'googleId' does not exist on type '{ id: string; email: string; passwordHash: string; fullName: string | null; birthDate: Date | null; relationshipStatus: string | null; profession: string | null; credits: number; onboardingCompleted: boolean; createdAt: Date; updatedAt: Date; }'.
+
+[7m105[0m       } else if (!user.googleId) {
+[7m   [0m [91m                       ~~~~~~~~[0m
+
+[96msrc/auth/auth.service.ts[0m:[93m109[0m:[93m19[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'googleId' does not exist in type '(Without<userUpdateInput, userUncheckedUpdateInput> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput)'.
+
+[7m109[0m           data: { googleId },
+[7m   [0m [91m                  ~~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m2015[0m:[93m5[0m
+    [7m2015[0m     data: XOR<userUpdateInput, userUncheckedUpdateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput); where: userWhereUniqueInput; }'
+
+[96msrc/auth/auth.service.ts[0m:[93m162[0m:[93m13[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'appleId' does not exist in type '(Without<userCreateInput, userUncheckedCreateInput> & userUncheckedCreateInput) | (Without<...> & userCreateInput)'.
+
+[7m162[0m             appleId,
+[7m   [0m [91m            ~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m1963[0m:[93m5[0m
+    [7m1963[0m     data: XOR<userCreateInput, userUncheckedCreateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedCreateInput) | (Without<...> & userCreateInput); }'
+
+[96msrc/auth/auth.service.ts[0m:[93m168[0m:[93m24[0m - [91merror[0m[90m TS2339: [0mProperty 'appleId' does not exist on type '{ id: string; email: string; passwordHash: string; fullName: string | null; birthDate: Date | null; relationshipStatus: string | null; profession: string | null; credits: number; onboardingCompleted: boolean; createdAt: Date; updatedAt: Date; }'.
+
+[7m168[0m       } else if (!user.appleId) {
+[7m   [0m [91m                       ~~~~~~~[0m
+
+[96msrc/auth/auth.service.ts[0m:[93m172[0m:[93m19[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'appleId' does not exist in type '(Without<userUpdateInput, userUncheckedUpdateInput> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput)'.
+
+[7m172[0m           data: { appleId },
+[7m   [0m [91m                  ~~~~~~~[0m
+
+  [96m../../../../opt/hostedapp/node/root/nodejs/node_modules/.prisma/client/index.d.ts[0m:[93m2015[0m:[93m5[0m
+    [7m2015[0m     data: XOR<userUpdateInput, userUncheckedUpdateInput>
+    [7m    [0m [96m    ~~~~[0m
+    The expected type comes from property 'data' which is declared here on type '{ select?: userSelect<DefaultArgs> | null | undefined; omit?: userOmit<DefaultArgs> | null | undefined; include?: userInclude<DefaultArgs> | null | undefined; data: (Without<...> & userUncheckedUpdateInput) | (Without<...> & userUpdateInput); where: userWhereUniqueInput; }'
+
+[[90m6:01:29 PM[0m] Found 7 errors. Watching for file changes.
+
+[2J[3J[H[[90m6:01:47 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.service.ts[0m:[93m19[0m:[93m28[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'typeof JwksRsa' has no call signatures.
+
+[7m19[0m     this.appleJwksClient = jwksClient({
+[7m  [0m [91m                           ~~~~~~~~~~[0m
+
+  [96msrc/auth/auth.service.ts[0m:[93m6[0m:[93m1[0m
+    [7m6[0m import * as jwksClient from 'jwks-rsa';
+    [7m [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+[[90m6:01:47 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m6:03:01 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.service.ts[0m:[93m19[0m:[93m28[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'typeof JwksRsa' has no call signatures.
+
+[7m19[0m     this.appleJwksClient = jwksClient({
+[7m  [0m [91m                           ~~~~~~~~~~[0m
+
+  [96msrc/auth/auth.service.ts[0m:[93m6[0m:[93m1[0m
+    [7m6[0m import * as jwksClient from 'jwks-rsa';
+    [7m [0m [96m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    Type originates at this import. A namespace-style import cannot be called or constructed, and will cause a failure at runtime. Consider using a default import or import require here instead.
+
+[[90m6:03:01 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m6:03:38 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m6:03:39 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +11ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPrismaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCreditsModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFortunesModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/auth}:[39m[38;5;3m +15ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/google, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/apple, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/auth/me, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/onboarding, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/users/profile, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFortunesController {/api/fortunes}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/fortunes/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCreditsController {/api/credits}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/balance, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/packages, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/credits/simulate-purchase, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +65ms[39m
+[32m[Nest] 5652  - [39m02/10/2026, 6:03:39 PM [32m    LOG[39m [38;5;3m[Bootstrap] [39m[32mFalgoritma API running on port 3000[39m

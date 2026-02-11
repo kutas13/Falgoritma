@@ -1,0 +1,9 @@
+env: load .env
+env: export EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID EXPO_PUBLIC_ADMOB_IOS_APP_ID EXPO_PUBLIC_ADMOB_ANDROID_APP_ID EXPO_PUBLIC_ADMOB_IOS_REWARDED EXPO_PUBLIC_ADMOB_ANDROID_REWARDED EXPO_PUBLIC_ADMOB_IOS_INTERSTITIAL EXPO_PUBLIC_ADMOB_ANDROID_INTERSTITIAL
+Starting Metro Bundler
+Web ./index.ts ▓░░░░░░░░░░░░░░░ 10.8% ( 69/216)
+Web ./index.ts ▓▓▓▓▓░░░░░░░░░░░ 32.7% (251/439)
+Web ./index.ts ▓▓▓▓▓▓▓▓░░░░░░░░ 55.3% (540/764)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.4% (794/960)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░ 84.7% ( 969/1053)
+Web Bundling failed 17907ms index.ts (1110 modules)

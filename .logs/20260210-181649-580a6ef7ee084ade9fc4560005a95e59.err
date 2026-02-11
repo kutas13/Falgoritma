@@ -1,0 +1,33 @@
+[31m[Nest] 1391  - [39m02/10/2026, 6:20:59 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPayloadTooLargeError: request entity too large
+    at readStream (/opt/hostedapp/node/root/nodejs/node_modules/[4mraw-body[24m/index.js:163:17)
+    at getRawBody (/opt/hostedapp/node/root/nodejs/node_modules/[4mraw-body[24m/index.js:116:12)
+    at read (/opt/hostedapp/node/root/nodejs/node_modules/[4mbody-parser[24m/lib/read.js:113:3)
+    at jsonParser (/opt/hostedapp/node/root/nodejs/node_modules/[4mbody-parser[24m/lib/types/json.js:88:5)
+    at Layer.handleRequest (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/lib/layer.js:152:17)
+    at trimPrefix (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:342:13)
+    at /opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:297:9
+    at processParams (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:582:12)
+    at next (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:291:5)
+    at cors (/opt/hostedapp/node/root/nodejs/node_modules/[4mcors[24m/lib/index.js:188:7) {
+  expected: [33m816769[39m,
+  length: [33m816769[39m,
+  limit: [33m102400[39m,
+  type: [32m'entity.too.large'[39m
+}
+[31m[Nest] 1391  - [39m02/10/2026, 6:21:29 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mPayloadTooLargeError: request entity too large
+    at readStream (/opt/hostedapp/node/root/nodejs/node_modules/[4mraw-body[24m/index.js:163:17)
+    at getRawBody (/opt/hostedapp/node/root/nodejs/node_modules/[4mraw-body[24m/index.js:116:12)
+    at read (/opt/hostedapp/node/root/nodejs/node_modules/[4mbody-parser[24m/lib/read.js:113:3)
+    at jsonParser (/opt/hostedapp/node/root/nodejs/node_modules/[4mbody-parser[24m/lib/types/json.js:88:5)
+    at Layer.handleRequest (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/lib/layer.js:152:17)
+    at trimPrefix (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:342:13)
+    at /opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:297:9
+    at processParams (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:582:12)
+    at next (/opt/hostedapp/node/root/nodejs/node_modules/[4mrouter[24m/index.js:291:5)
+    at cors (/opt/hostedapp/node/root/nodejs/node_modules/[4mcors[24m/lib/index.js:188:7) {
+  expected: [33m816769[39m,
+  length: [33m816769[39m,
+  limit: [33m102400[39m,
+  type: [32m'entity.too.large'[39m
+}
+Terminated

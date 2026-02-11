@@ -1,0 +1,15 @@
+env: load .env
+env: export EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID EXPO_PUBLIC_ADMOB_IOS_APP_ID EXPO_PUBLIC_ADMOB_ANDROID_APP_ID EXPO_PUBLIC_ADMOB_IOS_REWARDED EXPO_PUBLIC_ADMOB_ANDROID_REWARDED EXPO_PUBLIC_ADMOB_IOS_INTERSTITIAL EXPO_PUBLIC_ADMOB_ANDROID_INTERSTITIAL
+Starting project at /home/ubuntu/falgoritma/react_native_space
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Tunnel connected.
+Tunnel ready.
+Waiting on http://localhost:8082
+Logs for your project will appear below.
+iOS ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+iOS ./index.ts ▓▓▓░░░░░░░░░░░░░ 22.4% (309/653)
+iOS ./index.ts ▓▓▓▓▓▓▓▓▓▓░░░░░░ 64.1% (762/952)
+iOS ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░ 82.8% (1152/1266)
+iOS Bundled 13647ms index.ts (1425 modules)
+ ERROR  [runtime not ready]: Invariant Violation: TurboModuleRegistry.getEnforcing(...): 'RNGoogleMobileAdsModule' could not be found. Verify that a module by this name is registered in the native binary.

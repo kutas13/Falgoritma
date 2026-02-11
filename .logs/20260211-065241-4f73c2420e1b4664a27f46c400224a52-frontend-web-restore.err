@@ -1,0 +1,26 @@
+Error: Importing native-only module "react-native/Libraries/Utilities/codegenNativeComponent" on web from: ../../../../opt/hostedapp/node/root/react_native_expo/node_modules/react-native-google-mobile-ads/lib/module/specs/components/GoogleMobileAdsNativeViewNativeComponent.ts
+
+Import stack:
+
+ ../../../../opt/hostedapp/node/root/react_native_expo/node_modules/react-native-google-mobile-ads/lib/module/specs/components/GoogleMobileAdsNativeViewNativeComponent.ts
+ | import "react-native/Libraries/Utilities/codegenNativeComponent"
+           ^ Importing react-native internals is not supported on web.
+
+ ../../../../opt/hostedapp/node/root/react_native_expo/node_modules/react-native-google-mobile-ads/lib/module/ads/native-ad/NativeAdView.js
+ | import "../../specs/components/GoogleMobileAdsNativeViewNativeComponent"
+
+ ../../../../opt/hostedapp/node/root/react_native_expo/node_modules/react-native-google-mobile-ads/lib/module/index.js
+ | import "./ads/native-ad/NativeAdView"
+
+ src/services/ads.ts
+ | import "react-native-google-mobile-ads"
+
+ App.tsx
+ | import "./src/services/ads"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+

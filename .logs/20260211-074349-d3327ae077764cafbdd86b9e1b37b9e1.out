@@ -1,0 +1,9 @@
+env: load .env
+env: export EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID EXPO_PUBLIC_ADMOB_IOS_APP_ID EXPO_PUBLIC_ADMOB_ANDROID_APP_ID EXPO_PUBLIC_ADMOB_IOS_REWARDED EXPO_PUBLIC_ADMOB_ANDROID_REWARDED EXPO_PUBLIC_ADMOB_IOS_INTERSTITIAL EXPO_PUBLIC_ADMOB_ANDROID_INTERSTITIAL
+Starting project at /home/ubuntu/falgoritma/react_native_space
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Tunnel connected.
+Tunnel ready.
+Waiting on http://localhost:8082
+Logs for your project will appear below.

@@ -1,0 +1,26 @@
+Starting Metro Bundler
+Web ./index.ts ▓░░░░░░░░░░░░░░░ 12.5% ( 84/238)
+Web ./index.ts ▓▓▓▓▓▓░░░░░░░░░░ 41.3% (279/434)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓░░░░░░░ 60.1% (550/734)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 71.7% (719/849)
+Web Bundled 16001ms index.ts (956 modules)
+
+› Assets (12):
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.6e435534bd35da5fef04168860a9b8fa.ttf (1.31 MB)
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@react-navigation/elements/lib/module/assets/back-icon-mask.0a328cd9c1afd0afe8e3b1ec5165b1b4.png (653 B)
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@react-navigation/elements/lib/module/assets/back-icon.35ba0eaec5a4f5ed12ca16fabeae451d.png (207 B)
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@react-navigation/elements/lib/module/assets/clear-icon.c94f6478e7ae0cdd9f15de1fcb9e5e55.png (4 variations | 425 B)
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@react-navigation/elements/lib/module/assets/close-icon.808e1b1b9b53114ec2838071a7e6daa7.png (4 variations | 235 B)
+../../../../opt/hostedapp/node/root/react_native_expo/node_modules/@react-navigation/elements/lib/module/assets/search-icon.286d67d3f74808a60a78d3ebf1a5fb57.png (928 B)
+
+› web bundles (1):
+_expo/static/js/web/index-d62c50cf13ddc619749ac87c889e9925.js (1.76 MB)
+
+› Files (3):
+favicon.ico (14.5 kB)
+index.html (1.22 kB)
+metadata.json (49 B)
+
+Exported: dist
+Starting static server in /home/ubuntu/falgoritma/react_native_space/dist
+Server running at http://localhost:8081

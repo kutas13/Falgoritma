@@ -1,0 +1,13 @@
+[96msrc/subscriptions/subscriptions.controller.ts[0m:[93m24[0m:[93m19[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m24[0m   async subscribe(@Request() req, @Body() dto: CreateSubscriptionDto) {
+[7m  [0m [91m                  ~~~~~~~~~~~~~~[0m
+[96msrc/subscriptions/subscriptions.controller.ts[0m:[93m33[0m:[93m19[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m33[0m   async getStatus(@Request() req) {
+[7m  [0m [91m                  ~~~~~~~~~~~~~~[0m
+[96msrc/subscriptions/subscriptions.controller.ts[0m:[93m42[0m:[93m16[0m - [91merror[0m[90m TS7006: [0mParameter 'req' implicitly has an 'any' type.
+
+[7m42[0m   async cancel(@Request() req) {
+[7m  [0m [91m               ~~~~~~~~~~~~~~[0m
+
