@@ -22,6 +22,9 @@
       "extends": "base",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://falgoritma.abacusai.app"
       }
     },
     "production": {
@@ -30,7 +33,10 @@
         "distribution": "store",
         "autoIncrement": true
       },
-      "extends": "base"
+      "extends": "base",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://falgoritma.abacusai.app"
+      }
     }
   },
   "submit": {

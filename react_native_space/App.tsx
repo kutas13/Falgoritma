@@ -8,11 +8,13 @@ import { AppNavigator } from './src/navigation';
 import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { paperTheme } from './src/theme';
 import { adsService } from './src/services/ads';
+import { notificationService } from './src/services/notifications';
 
 export default function App() {
   useEffect(() => {
-    // Initialize AdMob
+    // Initialize AdMob and Notifications
     adsService.initialize();
+    notificationService.initialize();
   }, []);
 
   return (

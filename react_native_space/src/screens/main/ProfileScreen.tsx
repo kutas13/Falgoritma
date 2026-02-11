@@ -47,18 +47,28 @@ export const ProfileScreen: React.FC = () => {
   );
 
   const handleUpdate = async () => {
+    if (!relationshipStatus?.trim()) {
+      Alert.alert('Uyarı', 'Lütfen ilişki durumunu seçin');
+      return;
+    }
+    if (!profession?.trim()) {
+      Alert.alert('Uyarı', 'Lütfen meslek bilgisini girin');
+      return;
+    }
+
     setSaving(true);
     try {
       const updated = await apiService.updateProfile({
-        relationshipStatus,
+        relationshipStatus: relationshipStatus?.trim(),
         profession: profession?.trim(),
       });
-      setProfile(updated);
+      setProfile(updated ?? null);
       await refreshUser();
       Alert.alert('Başarılı', 'Profiliniz güncellendi');
     } catch (err: any) {
       const message = err?.response?.data?.message ?? 'Güncelleme başarısız';
       Alert.alert('Hata', message);
+      console.error('Profile update error:', err);
     } finally {
       setSaving(false);
     }

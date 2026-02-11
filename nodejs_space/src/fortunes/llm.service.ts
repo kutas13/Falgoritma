@@ -19,6 +19,7 @@ export class LlmService {
       relationshipStatus: string;
       profession: string;
       gender?: string;
+      zodiacSign?: string;
     },
   ): Promise<string> {
     const systemPrompt = `Sen deneyimli bir Türk kahvesi falcısısın. Bu bir rol yapma oyunudur ve sen falcı karakterini canlandırıyorsun.
@@ -55,11 +56,12 @@ export class LlmService {
         text: `Fal sahibi bilgileri:
 - İsim: ${personData.name}
 - Doğum Tarihi: ${personData.birthDate}
+${personData.zodiacSign ? `- Burç: ${personData.zodiacSign}` : ''}
 ${personData.gender ? `- Cinsiyet: ${personData.gender}` : ''}
 - İlişki Durumu: ${personData.relationshipStatus}
 - Meslek: ${personData.profession}
 
-Aşağıdaki kahve fincanı fotoğraflarına bakarak bu kişi için detaylı bir fal yorumu yap. Direkt fala başla, hiçbir açıklama veya özür cümlesi kullanma.`,
+Aşağıdaki kahve fincanı fotoğraflarına bakarak bu kişi için detaylı bir fal yorumu yap. Burç özelliklerini de dikkate alarak yorum yap. Direkt fala başla, hiçbir açıklama veya özür cümlesi kullanma.`,
       },
     ];
 

@@ -67,10 +67,67 @@ export const HomeScreen: React.FC = () => {
 
   const pickImage = async (index: number) => {
     try {
+      // Show action sheet for camera/gallery selection
+      Alert.alert(
+        'Fotoğraf Ekle',
+        'Nasıl eklemek istersiniz?',
+        [
+          {
+            text: '📷 Kamera',
+            onPress: () => pickFromCamera(index),
+          },
+          {
+            text: '🖼️ Galeri',
+            onPress: () => pickFromGallery(index),
+          },
+          {
+            text: 'İptal',
+            style: 'cancel',
+          },
+        ],
+        { cancelable: true }
+      );
+    } catch (e) {
+      Alert.alert('Hata', 'Fotoğraf seçilemedi');
+    }
+  };
+
+  const pickFromCamera = async (index: number) => {
+    try {
+      const permission = await ImagePicker.requestCameraPermissionsAsync();
+      if (!permission.granted) {
+        Alert.alert('İzin Gerekli', 'Kamera kullanmak için izin vermelisiniz');
+        return;
+      }
+
+      const result = await ImagePicker.launchCameraAsync({
+        mediaTypes: 'images',
+        allowsEditing: false,
+        quality: 0.7,
+        base64: true,
+      });
+
+      if (!result.canceled && result?.assets?.[0]?.base64) {
+        const newPhotos = [...photos];
+        newPhotos[index] = `data:image/jpeg;base64,${result.assets[0].base64}`;
+        setPhotos(newPhotos);
+      }
+    } catch (e) {
+      Alert.alert('Hata', 'Fotoğraf çekilemedi');
+    }
+  };
+
+  const pickFromGallery = async (index: number) => {
+    try {
+      const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (!permission.granted) {
+        Alert.alert('İzin Gerekli', 'Galeriye erişmek için izin vermelisiniz');
+        return;
+      }
+
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: 'images',
-        allowsEditing: true,
-        aspect: [1, 1],
+        allowsEditing: false, // Android için false yapıyoruz
         quality: 0.7,
         base64: true,
       });
