@@ -115,7 +115,7 @@ export class FortunesService {
       },
     });
 
-    return fortunes.map((f) => ({
+    return fortunes.map((f: any) => ({
       id: f.id,
       createdAt: f.createdAt,
       forSelf: f.forSelf,
