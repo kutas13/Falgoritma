@@ -15,6 +15,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAuth } from '../../context/AuthContext';
 import { apiService } from '../../services/api';
+import { adsService } from '../../services/ads';
 import { GoldButton } from '../../components/GoldButton';
 import { LoadingOverlay } from '../../components/LoadingOverlay';
 import { StarBackground } from '../../components/StarBackground';
@@ -114,6 +115,16 @@ export const HomeScreen: React.FC = () => {
     setLoading(true);
 
     try {
+      // Show interstitial ad before fortune creation (only on mobile, not for premium users)
+      if (Platform.OS !== 'web' && user && !user?.isPremium) {
+        try {
+          await adsService.showInterstitialAd();
+        } catch (adError) {
+          // Continue even if ad fails
+          console.log('Ad failed to show:', adError);
+        }
+      }
+
       let guestData: GuestData | undefined;
       if (!forSelf) {
         guestData = {

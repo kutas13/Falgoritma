@@ -5,12 +5,14 @@ import {
   ScrollView,
   Pressable,
   Alert,
+  Platform,
 } from 'react-native';
 import { Text, ActivityIndicator } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { useAuth } from '../../context/AuthContext';
 import { apiService } from '../../services/api';
+import { adsService } from '../../services/ads';
 import { StarBackground } from '../../components/StarBackground';
 import { colors } from '../../theme';
 import { CreditPackage, SubscriptionPlan, SubscriptionStatus } from '../../types';
@@ -24,6 +26,7 @@ export const CreditsScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [purchaseLoading, setPurchaseLoading] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'subscription' | 'credits'>('subscription');
+  const [adLoading, setAdLoading] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -84,6 +87,29 @@ export const CreditsScreen: React.FC = () => {
       Alert.alert('Hata', message);
     } finally {
       setPurchaseLoading(null);
+    }
+  };
+
+  const handleWatchRewardedAd = async () => {
+    if (Platform.OS === 'web') {
+      Alert.alert('Bilgi', 'Reklamlar sadece mobil cihazlarda gösterilir.');
+      return;
+    }
+
+    setAdLoading(true);
+    try {
+      const rewarded = await adsService.showRewardedAd();
+      if (rewarded) {
+        // Award 3 credits
+        const result = await apiService.simulatePurchase('rewarded_ad');
+        setCredits(result?.credits ?? 0);
+        updateUserCredits(result?.credits ?? 0);
+        Alert.alert('Tebrikler! 🎉', '+3 kredi kazandınız!');
+      }
+    } catch (error) {
+      Alert.alert('Hata', 'Reklam yüklenemedi. Lütfen tekrar deneyin.');
+    } finally {
+      setAdLoading(false);
     }
   };
 
@@ -176,6 +202,26 @@ export const CreditsScreen: React.FC = () => {
             )}
           </View>
         </View>
+
+        {/* Rewarded Ad Card */}
+        {!subscriptionStatus?.isPremium && Platform.OS !== 'web' && (
+          <Pressable 
+            style={styles.rewardedAdCard}
+            onPress={handleWatchRewardedAd}
+            disabled={adLoading}
+          >
+            <View style={styles.rewardedAdContent}>
+              <Text style={styles.rewardedAdIcon}>🎬</Text>
+              <View style={styles.rewardedAdText}>
+                <Text style={styles.rewardedAdTitle}>Video İzle, Kredi Kazan!</Text>
+                <Text style={styles.rewardedAdSubtitle}>
+                  {adLoading ? 'Reklam yükleniyor...' : 'Bir video izle, +3 kredi kazan'}
+                </Text>
+              </View>
+              <Text style={styles.rewardedAdReward}>+3 🪙</Text>
+            </View>
+          </Pressable>
+        )}
 
         {/* Tab switcher */}
         <View style={styles.tabContainer}>
@@ -371,6 +417,40 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 12,
     alignItems: 'center',
+  },
+  rewardedAdCard: {
+    backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    borderRadius: 16,
+    padding: 18,
+    marginBottom: 20,
+    borderWidth: 2,
+    borderColor: colors.gold,
+  },
+  rewardedAdContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  rewardedAdIcon: {
+    fontSize: 40,
+  },
+  rewardedAdText: {
+    flex: 1,
+  },
+  rewardedAdTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.gold,
+    marginBottom: 4,
+  },
+  rewardedAdSubtitle: {
+    fontSize: 13,
+    color: colors.textSecondary,
+  },
+  rewardedAdReward: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: colors.gold,
   },
   premiumBadgeText: {
     color: colors.background,

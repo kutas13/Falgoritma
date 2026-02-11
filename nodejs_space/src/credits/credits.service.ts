@@ -6,6 +6,7 @@ const CREDIT_PACKAGES = [
   { id: 'standart', name: 'Standart', credits: 12, priceTL: 69 },
   { id: 'avantajli', name: 'Avantajlı', credits: 18, priceTL: 89 },
   { id: 'power', name: 'Power', credits: 30, priceTL: 169 },
+  { id: 'rewarded_ad', name: 'Ödüllü Reklam', credits: 3, priceTL: 0 },
 ];
 
 @Injectable()
