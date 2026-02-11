@@ -1,11 +1,22 @@
 import { Platform } from 'react-native';
-import mobileAds, {
-  RewardedAd,
-  RewardedAdEventType,
-  InterstitialAd,
-  AdEventType,
-  TestIds,
-} from 'react-native-google-mobile-ads';
+
+// Only import AdMob on native platforms (not web)
+let mobileAds: any = null;
+let RewardedAd: any = null;
+let RewardedAdEventType: any = null;
+let InterstitialAd: any = null;
+let AdEventType: any = null;
+let TestIds: any = { REWARDED: 'test', INTERSTITIAL: 'test' };
+
+if (Platform.OS !== 'web') {
+  const adMobModule = require('react-native-google-mobile-ads');
+  mobileAds = adMobModule.default;
+  RewardedAd = adMobModule.RewardedAd;
+  RewardedAdEventType = adMobModule.RewardedAdEventType;
+  InterstitialAd = adMobModule.InterstitialAd;
+  AdEventType = adMobModule.AdEventType;
+  TestIds = adMobModule.TestIds;
+}
 
 // Ad Unit IDs
 const REWARDED_AD_UNIT_ID = Platform.select({
@@ -26,7 +37,7 @@ class AdsService {
   private isInitialized = false;
 
   async initialize() {
-    if (this.isInitialized || Platform.OS === 'web') return;
+    if (this.isInitialized || Platform.OS === 'web' || !mobileAds) return;
     
     try {
       await mobileAds().initialize();
@@ -41,7 +52,7 @@ class AdsService {
   }
 
   private loadRewardedAd() {
-    if (Platform.OS === 'web') return;
+    if (Platform.OS === 'web' || !RewardedAd) return;
 
     this.rewardedAd = RewardedAd.createForAdRequest(REWARDED_AD_UNIT_ID);
     
@@ -57,7 +68,7 @@ class AdsService {
   }
 
   private loadInterstitialAd() {
-    if (Platform.OS === 'web') return;
+    if (Platform.OS === 'web' || !InterstitialAd) return;
 
     this.interstitialAd = InterstitialAd.createForAdRequest(INTERSTITIAL_AD_UNIT_ID);
     
